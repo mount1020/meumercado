@@ -7,27 +7,34 @@ const NavBarra = () => {
   const usuarioNome = localStorage.getItem("userName")
     return (
     <div>
-      <Navbar expand="lg" bg="success" data-bs-theme="dark">
+      <Navbar expand="lg" bg="warning" data-bs-theme="dark">
         <Container>
-          {/* Icone mercado */}
+          {/* Icone  */}
           <span
             className="material-symbols-outlined"
             style={{ fontSize: "40px", color: "white" }}
           >
-            store
+            <span class="material-symbols-outlined">
+             settings_accessibility
+               </span>
           </span>
           {/* Texto logo */}
-          <Navbar.Brand href="/home">C&G Mercados</Navbar.Brand>
+          <Navbar.Brand href="/home">ong</Navbar.Brand>
 
           <Navbar.Toggle aria-controls="minha-nav" />
           <Navbar.Collapse id="minha-nav">
             {/* Paginas */}
             <Nav className="me-auto">
-              <Nav.Link href="/home" className="active">Produtos</Nav.Link>
+              <Nav.Link href="/home" className="active">animais</Nav.Link>
               <Nav.Link href="/produto/cadastrar">Cadastro</Nav.Link>
             </Nav>
             {/* Sair */}
             <Nav className="justify-content-end">
+
+            <span className="material-symbols-outlined"
+            >
+              sound_detection_dog_barking
+                    </span>
               <Navbar.Text style={{color:"white"}}>
                 Usuário: {usuarioNome} |
               </Navbar.Text>

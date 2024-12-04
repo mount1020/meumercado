@@ -10,11 +10,11 @@ import NavBarra from "../components/NavBarra";
 import { useState, useEffect } from "react";
 
 // Url da api
-const url = "http://localhost:5000/produtos"
+const url = "http://localhost:5000/animais"
 
 const Home = () => {
-    //Lista com produtos
-    const [produtos, setProdutos] = useState([])
+    //Lista com animais
+    const [animais, setAnimais] = useState([])
     //UseEffect pra puxar os dados da api
     useEffect(()=>{
       async function fetchData(){
@@ -22,39 +22,32 @@ const Home = () => {
             const req = await fetch(url)
             const prods = await req.json()
             console.log(prods)
-            setProdutos(prods)
+            setAnimais(prods)
         }
         catch(erro){
           console.log(erro.message)
         }
       }
       fetchData()
-    }, [produtos])
+    }, [animais])
   
   return (
     <div>
       <NavBarra />
-      <h1>Lista de produtos</h1>
+      <h1>Lista de animais</h1>
       <Container>
-        <div className="lista-produtos d-flex col-12 gap-2 mt-3 justify-content-start flex-wrap">
+        <div className="lista-animais d-flex col-12 gap-2 mt-3 justify-content-start flex-wrap">
           {/* Card com informações fixas */}
-          {/* <CardProduto
-          id="1"
-          nome="Shampoo Cr7"
-          descricao="Melhor shampoo do mundo"
-          preco="7,77"
-          categoria="Saúde e beleza"
-          imagemUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAiGeCC3KhBPz8xa_dcPdPor2D__CuueBzeA&s"
-        /> */}
+         
 
           {/* Card com informações variáveis */}
-          {produtos.map((prod) => (
+          {animais.map((prod) => (
             <CardProduto
               key={prod.id}
               id={prod.id}
-              nome={prod.nome}
-              descricao={prod.descricao}
-              preco={prod.preco}
+              tipo={prod.tipo}
+              raca={prod.raca}
+              vacinacao={prod.vacinacao}
               categoria={prod.categoria}
               imagemUrl={prod.imagemUrl}
             />

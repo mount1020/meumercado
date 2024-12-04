@@ -20,11 +20,11 @@ const CardProduto = (props) => {
         <Card.Img variant="top" src={props.imagemUrl} height="200px" />
 
         <Card.Body>
-          {/* Título do card com nome do produto */}
+          {/* Título do card com nome do animal */}
           <Card.Title>{props.nome}</Card.Title>
-          {/* Subtitulo no card com preco do produto */}
+          {/* Subtitulo no card com vacinação do animal */}
           <Card.Subtitle className="mb-2 text-muted">
-            Preço: {props.preco}
+            Vacinação: {props.vacinacao}
           </Card.Subtitle>
           <Card.Text>
             <b> Descrição: </b> <br></br> {props.descricao}

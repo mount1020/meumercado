@@ -41,13 +41,13 @@ const CadastroProduto = () => {
 
   //Link produto sem imagem
   const linkImagem =
-    "https://www.malhariapradense.com.br/wp-content/uploads/2017/08/produto-sem-imagem.png";
+    "https://e7.pngegg.com/pngimages/228/925/png-clipart-black-cat-silhouette-wedding-cake-topper-animal-silhouettes-mammal-animals-thumbnail.png";
 
   //Variáveis para o produto
-  const [nome, setNome] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] = useState("Eletrônicos");
-  const [preco, setPreco] = useState("");
+  const [tipo, setTipo] = useState("");
+  const [raca, setRaca] = useState("");
+  const [categoria, setCategoria] = useState("outros");
+  const [vacinacao, setVacinacao] = useState("");
   const [imagemUrl, setImagemUrl] = useState("");
 
   //Variáveis para o alerta
@@ -63,10 +63,10 @@ const CadastroProduto = () => {
     //Previne a página de ser recarregada
     e.preventDefault();
 
-    if (nome != "") {
-      if (descricao != "") {
-        if (preco != "") {
-          const produto = { nome, descricao, categoria, preco, imagemUrl };
+    if (tipo != "") {
+      if (raca != "") {
+        if (vacinacao != "") {
+          const produto = { tipo, raca, categoria, vacinacao, imagemUrl };
           console.log(produto);
           try {
             const req = await fetch(urlProd, {
@@ -78,8 +78,8 @@ const CadastroProduto = () => {
             console.log(res);
             setAlertClass("mb-3 mt-2");
             setAlertVariant("success");
-            setAlertMensagem("Produto cadastrado com sucesso");
-            alert("Produto cadastrado com sucesso");
+            setAlertMensagem("animal cadastrado com sucesso");
+            alert("animal cadastrado com sucesso");
             // navigate("/home");
           } 
           catch (error) {
@@ -88,15 +88,15 @@ const CadastroProduto = () => {
         } 
         else {
           setAlertClass("mb-3 mt-2");
-          setAlertMensagem("O campo preço não pode ser vazio");
+          setAlertMensagem("O campo vacinação não pode ser vazio");
         }
       } else {
         setAlertClass("mb-3 mt-2");
-        setAlertMensagem("O campo descrição não pode ser vazio");
+        setAlertMensagem("O campo raça não pode ser vazio");
       }
     } else {
       setAlertClass("mb-3 mt-2");
-      setAlertMensagem("O campo nome não pode ser vazio");
+      setAlertMensagem("O campo tipo não pode ser vazio");
     }
   };
 
@@ -104,22 +104,22 @@ const CadastroProduto = () => {
     <div>
       <NavBarra />
       <Container>
-        <h1>Cadastrar Produtos</h1>
+        <h1>Cadastrar Animal</h1>
         <form className="mt-3" onSubmit={handleSubmit}>
           <Row>
             <Col xs={6}>
               {/* Caixinha de nome */}
               <FloatingLabel
                 controlId="floatingInputNome"
-                label="Nome"
+                label="tipo"
                 className="mb-3"
               >
                 <Form.Control
                   type="text"
                   placeholder="Digite o nome do produto"
-                  value={nome}
+                  value={tipo}
                   onChange={(e) => {
-                    setNome(e.target.value);
+                    setTipo(e.target.value);
                   }}
                 />
               </FloatingLabel>
@@ -127,22 +127,22 @@ const CadastroProduto = () => {
               {/* Caixinha de descrição */}
               <FloatingLabel
                 controlId="floatingInputDescricao"
-                label="Descrição"
+                label="raça"
                 className="mb-3"
               >
                 <Form.Control
                   type="text"
                   placeholder="Digite a descrição do produto"
-                  value={descricao}
+                  value={raca}
                   onChange={(e) => {
-                    setDescricao(e.target.value);
+                    setRaca(e.target.value);
                   }}
                 />
               </FloatingLabel>
 
               {/* Select de categorias */}
               <Form.Group controlId="formGridTipo" className="mb-3">
-                <Form.Label>Tipo de produto</Form.Label>
+                <Form.Label>Tipo de animal</Form.Label>
                 <Form.Select
                   value={categoria}
                   onChange={(e) => {
@@ -160,16 +160,15 @@ const CadastroProduto = () => {
               {/* Caixinha de preço */}
               <FloatingLabel
                 controlId="floatingInputPreco"
-                label="Preço"
+                label="Vacinação"
                 className="mb-3"
               >
                 <Form.Control
-                  type="number"
-                  step="0.1"
-                  placeholder="Digite o preco"
-                  value={preco}
+                  type="text"
+                  placeholder="o animal e vacinado"
+                  value={vacinacao}
                   onChange={(e) => {
-                    setPreco(e.target.value);
+                    setVacinacao(e.target.value);
                   }}
                 />
               </FloatingLabel>
@@ -179,12 +178,12 @@ const CadastroProduto = () => {
                 {/* Caixinha de imagem */}
                 <FloatingLabel
                   controlId="floatingInputImagem"
-                  label="Envie o link da imagem do produto"
+                  label="Envie o link da imagem do animal"
                   className="mb-3"
                 >
                   <Form.Control
                     type="text"
-                    placeholder="Envie o link da imagem do produto"
+                    placeholder="Envie o link da imagem do animal"
                     value={imagemUrl}
                     onChange={(e) => {
                       setImagemUrl(e.target.value);

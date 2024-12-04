@@ -38,14 +38,14 @@ useEffect(() => {
   fetchData();
 }, []);
 
-  //Link produto sem imagem
+  //Link  sem imagem
   const linkImagem =
-    "https://www.malhariapradense.com.br/wp-content/uploads/2017/08/produto-sem-imagem.png";
+    "https://e7.pngegg.com/pngimages/228/925/png-clipart-black-cat-silhouette-wedding-cake-topper-animal-silhouettes-mammal-animals-thumbnail.png";
 
-  //Variáveis para o produto
+  //Variáveis para os animais
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] = useState("Eletrônicos");
+  const [categoria, setCategoria] = useState("outros");
   const [preco, setPreco] = useState("");
   const [imagemUrl, setImagemUrl] = useState("");
 
@@ -102,8 +102,8 @@ useEffect(() => {
             console.log(res);
             setAlertClass("mb-3 mt-2");
             setAlertVariant("success");
-            setAlertMensagem("Produto editado com sucesso");
-            alert("Produto editado com sucesso");
+            setAlertMensagem("Animal editado com sucesso");
+            alert("Animal editado com sucesso");
             // navigate("/home");
           } 
           catch (error) {
@@ -112,15 +112,15 @@ useEffect(() => {
         } 
         else {
           setAlertClass("mb-3 mt-2");
-          setAlertMensagem("O campo preço não pode ser vazio");
+          setAlertMensagem("O campo vaçinação não pode ser vazio");
         }
       } else {
         setAlertClass("mb-3 mt-2");
-        setAlertMensagem("O campo descrição não pode ser vazio");
+        setAlertMensagem("O campo raça não pode ser vazio");
       }
     } else {
       setAlertClass("mb-3 mt-2");
-      setAlertMensagem("O campo nome não pode ser vazio");
+      setAlertMensagem("O campo tipo não pode ser vazio");
     }
   };
 
@@ -129,7 +129,7 @@ useEffect(() => {
     <div>
       <NavBarra />
       <Container>
-        <h1>Editar Produtos</h1>
+        <h1>Editar Animais</h1>
         <form className="mt-3" onSubmit={handleSubmit}>
           <Row>
             <Col xs={6}>
@@ -141,7 +141,7 @@ useEffect(() => {
               >
                 <Form.Control
                   type="text"
-                  placeholder="Digite o nome do produto"
+                  placeholder="Digite o tipo do animal"
                   value={nome}
                   onChange={(e) => {
                     setNome(e.target.value);
@@ -157,7 +157,7 @@ useEffect(() => {
               >
                 <Form.Control
                   type="text"
-                  placeholder="Digite a descrição do produto"
+                  placeholder="Digite a raça do animal"
                   value={descricao}
                   onChange={(e) => {
                     setDescricao(e.target.value);
@@ -167,7 +167,7 @@ useEffect(() => {
 
               {/* Select de categorias */}
               <Form.Group controlId="formGridTipo" className="mb-3">
-                <Form.Label>Tipo de produto</Form.Label>
+                <Form.Label>Tipo de animal</Form.Label>
                 <Form.Select
                   value={categoria}
                   onChange={(e) => {
@@ -191,7 +191,7 @@ useEffect(() => {
                 <Form.Control
                   type="number"
                   step="0.1"
-                  placeholder="Digite o preco"
+                  placeholder="vacinação"
                   value={preco}
                   onChange={(e) => {
                     setPreco(e.target.value);
@@ -209,7 +209,7 @@ useEffect(() => {
                 >
                   <Form.Control
                     type="text"
-                    placeholder="Envie o link da imagem do produto"
+                    placeholder="Envie o link da imagem do animal"
                     value={imagemUrl}
                     onChange={(e) => {
                       setImagemUrl(e.target.value);
@@ -232,7 +232,7 @@ useEffect(() => {
             {alertMensagem}
           </Alert>
 
-          {/* Botão para enviar o formulário de cadastro de produto */}
+          {/* Botão para enviar o formulário de cadastro de animal */}
           <Button variant="primary" size="lg" type="submit">
             Editar
           </Button>

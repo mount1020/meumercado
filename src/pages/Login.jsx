@@ -101,7 +101,7 @@ const Login = () => {
           style={{ fontSize: "200px", color: "white" }}
           className="material-symbols-outlined"
         >
-          login
+          pets
         </span>
         <Form style={{ width: "75%", margin: "auto" }} onSubmit={handleLogin}>
           {/* Caixinha de email */}
